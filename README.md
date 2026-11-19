@@ -1,5 +1,11 @@
 # tiny-chess-01 — a 4 KB chess engine
 
+[![make.fun · tiny-chess-01](https://make.fun/badge/tiny-chess-01.svg)](https://make.fun/bounty/tiny-chess-01?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
+[![rank](https://make.fun/badge/tiny-chess-01/tanglangbc/tiny-chess/rank.svg)](https://make.fun/bounty/tiny-chess-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
+[![reward](https://make.fun/badge/tiny-chess-01/tanglangbc/tiny-chess/reward.svg)](https://make.fun/bounty/tiny-chess-01?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
+
+Built for [make.fun](https://make.fun/?ref=NVRADX) — entry for [tiny-chess-01](https://make.fun/bounty/tiny-chess-01).
+
 An original, dense Python chess engine that fits in 4,096 bytes as
 committed. It plays through the make.fun env (`MAKEFUN_ENV_URL`) and
 picks moves by search, never by clock: every move is derived from the
@@ -26,11 +32,12 @@ produces identical moves.
 ## Size
 
 `main.py` is a one-line packed entrypoint: the engine source is
-lzma-compressed and base85-encoded, then unpacked and `exec`'d at
-runtime (explicitly allowed by `RULES.txt`; the house sunfish baseline
-is shipped the same way). Packed size is 4,070 bytes, under the
-4,096-byte cap. The unpacked source lives in `dev/` in the build
-workspace, not in this repo. No other file is read, imported or run.
+packed with the kit's `makefun compress` (an lzma payload in a small
+stub), then unpacked and `exec`'d at runtime (explicitly allowed by
+`RULES.txt`; the house sunfish baseline is shipped the same way).
+Packed size is 3,319 bytes, under the 4,096-byte cap. The unpacked
+source is kept as `main_v4b.py` in the repository's folder and is not
+committed, per the kit's flow. No other file is read, imported or run.
 
 ## Practice results (local kit, 6 games each)
 
